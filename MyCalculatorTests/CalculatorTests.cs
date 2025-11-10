@@ -3,7 +3,7 @@
 namespace MyCalculatorTests
 {
     [TestClass]
-    public  class CalculatorTests
+    public class CalculatorTests
     {
         [TestMethod]
         public void Add_ReturnsCorrectResult()
@@ -51,6 +51,23 @@ namespace MyCalculatorTests
             double result = calculator.Divide(a, b);
 
             Assert.AreEqual(5, result);
+        }
+
+        [TestMethod]
+        public void Zero_ReturnsExceptionMessage()
+        {
+            var calculator = new Calculator();
+            double a = 5;
+            double b = 0;
+
+
+
+
+            Assert.ThrowsException<DivideByZeroException>(() =>
+            {
+                double result = calculator.Divide(a, b);
+
+            });
         }
     }
 }

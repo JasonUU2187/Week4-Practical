@@ -14,9 +14,23 @@
         {
             return a * b;
         }
-        public double Divide (double a, double b)
+        public double Divide (double a, int b)
         {
-            return a / b;
+            double result;
+            try
+            {
+                result = a / b;
+                
+
+            }
+            catch (DivideByZeroException ex)
+            {
+                Console.WriteLine($"An error occured. {ex.Message}");
+                throw;
+            }
+            return result;
+            
         }
     }
-}
+ }
+
