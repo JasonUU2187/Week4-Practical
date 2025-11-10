@@ -54,20 +54,27 @@ namespace MyCalculatorTests
         }
 
         [TestMethod]
-        public void Zero_ReturnsExceptionMessage()
+        public void Add_LargeNumbers_ReturnsCorrectResult()
         {
             var calculator = new Calculator();
-            double a = 5;
-            double b = 0;
+            double a = double.MaxValue - 100;
+            double b = 50;
 
+            double result = calculator.Add(a, b);
 
+            Assert.AreEqual(double.MaxValue - 50, result);
+        }
 
+        [TestMethod]
+        public void Divide_SmallNumbers_ReturnsCorrectResult()
+        {
+            var calculator = new Calculator();
+            double a = double.MinValue;
+            double b = 5;
 
-            Assert.ThrowsException<DivideByZeroException>(() =>
-            {
-                double result = calculator.Divide(a, b);
+            double result = calculator.Divide(a, b);
 
-            });
+            Assert.AreEqual(double., result);
         }
     }
 }
